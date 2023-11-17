@@ -1,0 +1,60 @@
+curious@curious-laptop:~/Learning/assignment-6-CuriousTux$ ./build.sh
+Synchronizing submodule url for 'assignment-autotest'
+Synchronizing submodule url for 'poky'
+
+### Shell environment set up for builds. ###
+
+You can now run 'bitbake <target>'
+
+Common targets are:
+    core-image-minimal
+    core-image-full-cmdline
+    core-image-sato
+    core-image-weston
+    meta-toolchain
+    meta-ide-support
+
+You can also run generated qemu images with a command like 'runqemu qemux86'
+
+Other commonly useful commands are:
+ - 'devtool' and 'recipetool' handle common recipe tasks
+ - 'bitbake-layers' handles common layer tasks
+ - 'oe-pkgdata-util' handles common target package tasks
+MACHINE = "qemuarm64" already exists in the local.conf file
+meta-aesd layer already exists
+Loading cache: 100% |                                           | ETA:  --:--:--
+Loaded 0 entries from dependency cache.
+Parsing recipes: 100% |##########################################| Time: 0:00:17
+Parsing of 885 .bb files complete (0 cached, 885 parsed). 1646 targets, 56 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "2.0.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "ubuntu-22.04"
+TARGET_SYS           = "aarch64-poky-linux"
+MACHINE              = "qemuarm64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "4.0.14"
+TUNE_FEATURES        = "aarch64 armv8a crc cortexa57"
+TARGET_FPU           = ""
+meta                 
+meta-poky            
+meta-yocto-bsp       = "kirkstone:a171408008bfbb89446112f3dbc543f35f76b335"
+meta-aesd            = "main:d776a0e0b581fba7925158fa6ffaf68b69960029"
+
+Initialising tasks: 100% |#######################################| Time: 0:00:01
+Sstate summary: Wanted 1578 Local 1188 Mirrors 0 Missed 390 Current 0 (75% match, 0% complete)
+NOTE: Executing Tasks
+ERROR: aesd-assignments-1.0+gitAUTOINC+b012d44e1c-r0 do_package: Fatal errors occurred in subprocesses:
+Command '['aarch64-poky-linux-objcopy', '--only-keep-debug', '/home/curious/Learning/assignment-6-CuriousTux/build/tmp/work/cortexa57-poky-linux/aesd-assignments/1.0+gitAUTOINC+b012d44e1c-r0/package/usr/bin/aesdsocket', '/home/curious/Learning/assignment-6-CuriousTux/build/tmp/work/cortexa57-poky-linux/aesd-assignments/1.0+gitAUTOINC+b012d44e1c-r0/package/usr/bin/.debug/aesdsocket']' returned non-zero exit status 1.
+Subprocess output:aarch64-poky-linux-objcopy: Unable to recognise the format of the input file `/home/curious/Learning/assignment-6-CuriousTux/build/tmp/work/cortexa57-poky-linux/aesd-assignments/1.0+gitAUTOINC+b012d44e1c-r0/package/usr/bin/aesdsocket'
+
+ERROR: Logfile of failure stored in: /home/curious/Learning/assignment-6-CuriousTux/build/tmp/work/cortexa57-poky-linux/aesd-assignments/1.0+gitAUTOINC+b012d44e1c-r0/temp/log.do_package.208699
+ERROR: Task (/home/curious/Learning/assignment-6-CuriousTux/meta-aesd/recipes-aesd-assignments/aesd-assignments/aesd-assignments_git.bb:do_package) failed with exit code '1'
+NOTE: Tasks Summary: Attempted 3485 tasks of which 3241 didn't need to be rerun and 1 failed.
+
+Summary: 1 task failed:
+  /home/curious/Learning/assignment-6-CuriousTux/meta-aesd/recipes-aesd-assignments/aesd-assignments/aesd-assignments_git.bb:do_package
+Summary: There was 1 ERROR message, returning a non-zero exit code.
+
